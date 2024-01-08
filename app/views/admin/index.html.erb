@@ -1,0 +1,75 @@
+<h1>Admin dashboard</h1>
+<div class="row">
+  <div class="col-4">
+    <h4>Users</h4>
+    <table class="table table-striped">
+      <thead> 
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+      </thead>
+      <tbody>
+        <% @users.each_with_index do |user, index| %>
+          <tr id="user_<%= user.id %>">
+            <td> <%= index + 1 %> </td>
+            <td> <%= user.id %> </td>
+            <td> <%= user.username %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-8">
+    <h4>Applications</h4>
+    <table class="table table-striped">
+      <thead> 
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">User ID</th>
+        <th scope="col">App ID</th>
+        <th scope="col">Client ID</th>
+        <th scope="col">Client secret</th>
+      </thead>
+      <tbody>
+        <% @applications.each_with_index do |app, index| %>
+          <tr>
+            <td class="align-middle"> <%= index + 1 %> </td>
+            <td class="align-middle"> <%= app.id %> </td>
+            <td 
+              class="align-middle" 
+              onmouseover="onUserIdHover('<%= app.users_id %>')"
+              onmouseleave="onUserIdLeave('<%= app.users_id %>')">
+              <span class="hover-please"> <%= app.users_id %> </span> 
+            </td>
+            <td class="align-middle"> <%= app.app_id %> </td>
+            <td class="align-middle"> <%= app.client_id %> </td>
+            <td class="input-group"> 
+              <input id="client_secret_<%= index %>" class="form-control" type="password" value="<%= app.client_secret %>" disabled>
+              <button class="form-control" onclick="copyClientSecret('client_secret_<%= index %>')">Copy</button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  function copyClientSecret(inputId) {
+    const el = document.querySelector(`#${inputId}`);
+    if(!el) return;
+    navigator.clipboard.writeText(el.value); 
+  }
+
+  function onUserIdHover(userId) {
+    const el = document.querySelector(`#user_${userId}`);
+    console.log(el)
+    if(!el) return;
+    el.classList.add('table-primary');
+  }
+
+  function onUserIdLeave(userId) {
+    const el = document.querySelector(`#user_${userId}`);
+    if(!el) return;
+    el.classList.remove('table-primary');
+  }
+</script>
