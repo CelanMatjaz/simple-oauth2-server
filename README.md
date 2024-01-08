@@ -6,10 +6,10 @@ Not up to standard, only used for testing connecting accounts with other apps!
 
 ## Features
 
-- [x] Admin dashboard (root page) with overview over users and their OAuth apps
-- [ ] User registration and login
-- [ ] Ability to add apps when logged in as a user
-- [ ] OAuth 2.0 flow 
+:white_check_mark: Admin dashboard (root page) with overview over users and their OAuth apps  
+:black_square_button: User registration and login  
+:black_square_button: Ability to add apps when logged in as a user  
+:black_square_button: OAuth 2.0 flow
 
 ## Requirements:
 
