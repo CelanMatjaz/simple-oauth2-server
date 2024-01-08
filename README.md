@@ -18,7 +18,7 @@ Not up to standard, only used for testing connecting accounts with other apps!
 
 ## Run
 
-Clone repo and in repo directory run `gem install rails`, migrate db with `bin/rails db:migrate`.
+Clone repo and in repo directory run `bundle install`, migrate db with `bin/rails db:migrate`.
 
 Start server with `bin/rails server`.
 

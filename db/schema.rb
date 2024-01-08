@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_08_191245) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_08_222509) do
   create_table "applications", force: :cascade do |t|
     t.string "app_id"
     t.string "client_id"
     t.string "client_secret"
+    t.string "redirect_url"
     t.integer "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_08_191245) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["username"], name: "index_users_on_username", unique: true
