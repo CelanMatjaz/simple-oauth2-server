@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   
   get "/admin", to: "admin#index"
 
-
+  get "/user", to: "user#index" 
+  get "/user/register", to: "user#register" 
+  get "/user/login", to: "user#login" 
+  post "/user/register", to: "user#create"
+  post "/user/login", to: "user#authenticate"
+  post "/user/logout", to: "user#logout"
 
 end

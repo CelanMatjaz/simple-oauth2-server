@@ -1,0 +1,23 @@
+<% if @notice %>
+  <div class="text-bg-warning bg-gradient p-3 rounded"> <%= @notice %> </div>
+<% end %>
+
+<%= form_with do |form| %>
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" name="username" class="form-control" id="username">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="password">
+  </div>
+  <% if request.path == user_register_path %>
+    <div class="mb-3">
+      <label for="password_repeat" class="form-label">Repeat password</label>
+      <input type="password" name="password_repeat" class="form-control" id="password_repeat">
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+  <% else %>
+    <button type="submit" class="btn btn-primary">Login</button>
+  <% end %>
+<% end %>

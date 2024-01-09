@@ -3,15 +3,13 @@
   <div class="col-4">
     <h4>Users</h4>
     <table class="table table-striped">
-      <thead> 
-        <th scope="col">#</th>
+      <thead class="table-dark">
         <th scope="col">ID</th>
         <th scope="col">Username</th>
       </thead>
       <tbody>
         <% @users.each_with_index do |user, index| %>
           <tr id="user_<%= user.id %>">
-            <td> <%= index + 1 %> </td>
             <td> <%= user.id %> </td>
             <td> <%= user.username %> </td>
           </tr>
@@ -22,8 +20,7 @@
   <div class="col-lg-8">
     <h4>Applications</h4>
     <table class="table table-striped">
-      <thead> 
-        <th scope="col">#</th>
+      <thead class="table-dark">
         <th scope="col">ID</th>
         <th scope="col">User ID</th>
         <th scope="col">App ID</th>
@@ -33,9 +30,9 @@
       <tbody>
         <% @applications.each_with_index do |app, index| %>
           <tr>
-            <td class="align-middle"> <%= index + 1 %> </td>
             <td class="align-middle"> <%= app.id %> </td>
-            <td 
+            <td
+              title="Hover to highlight user"
               class="align-middle" 
               onmouseover="onUserIdHover('<%= app.users_id %>')"
               onmouseleave="onUserIdLeave('<%= app.users_id %>')">
